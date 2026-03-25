@@ -8,7 +8,7 @@ TITLE:Head of Marketing
 item1.EMAIL;type=INTERNET;type=pref:caroline.miles@ari-cosmetics.com
 item1.X-ABLabel:e-mail
 TEL;type=CELL;type=VOICE;type=pref:+41788128681
-item2.URL;type=pref:https://www.ari-cosmetics.com
+item2.URL;type=pref:www.ari-cosmetics.com
 item2.X-ABLabel:web
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAgkJCQkJCQkF
  CQkJCQUJCQkFBQUFBQUFBQUHBQUFBQUFBwcFBQUFBQUFBQoFBQcICQkJBQcLDQoIDQcICQgBAw
