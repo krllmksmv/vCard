@@ -96,6 +96,16 @@
       display: block;
     }
 
+    .hero-meta {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.92);
+      font-size: 26px;
+      line-height: 1.25;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
     .name {
       margin: var(--hero-name-gap-top) 0 0;
       color: var(--white);
@@ -306,6 +316,11 @@
         --panel-icon: 68px;
         --label-size: 18px;
         --value-size: 22px;
+      }
+
+      .hero-meta {
+        font-size: 18px;
+        margin-top: 16px;
       }
 
       .row {
@@ -608,6 +623,7 @@
         }
 
         const photoSrc = card.photoDataUrl || `./${safeName}.jpg`;
+        const heroMeta = [card.title, card.company].filter(Boolean).join(' • ');
 
         document.title = card.fullName;
         document.body.classList.remove('empty');
@@ -619,6 +635,7 @@
                 <div class="avatar-wrap">
                   <img class="avatar" src="${photoSrc}" alt="${card.fullName}" onerror="this.onerror=null; this.src=''; this.parentElement.style.display='none';">
                 </div>
+                ${heroMeta ? `<div class="hero-meta">${heroMeta}</div>` : ''}
                 <h1 class="name">${card.fullName}</h1>
                 <a class="add-btn" href="./${safeName}.vcf" download>
                   ${ICONS.plus}
