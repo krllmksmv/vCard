@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+
+  <!-- Основная информация -->
+  <displayName>Armen Grishkyan</displayName>
+
+  <!-- Контакты -->
+  <contact>
+    <phone>+41788248739</phone>
+    <email>armen.grishkyan@ari-cosmetics.com</email>
+    <website>https://www.ari-cosmetics.com</website>
+  </contact>
+
+  <!-- Компания -->
+  <company>
+    <name>ARI Cosmetics</name>
+    <title>CEO</title>
+  </company>
+
+</profile>
