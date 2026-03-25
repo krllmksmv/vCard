@@ -17,15 +17,12 @@
       --radius-card: 20px;
       --radius-icon: 12px;
       --radius-pill: 999px;
-
       --hero-edge-gap: 42px;
       --hero-name-gap-top: 30px;
       --hero-button-gap-top: 28px;
-
-      --content-gap-top: var(--hero-edge-gap);
+      --content-gap-top: 42px;
       --page-side: 26px;
       --frame-max: 860px;
-
       --avatar-size: 320px;
       --avatar-border: 10px;
       --name-size: 70px;
@@ -34,12 +31,9 @@
       --button-height: 118px;
       --button-font: 31px;
       --button-icon: 52px;
-
       --panel-header-h: 142px;
       --panel-title: 54px;
       --panel-icon: 96px;
-      --chevron-size: 40px;
-
       --label-size: 25px;
       --value-size: 32px;
       --row-gap: 20px;
@@ -55,6 +49,10 @@
       background: var(--page);
       overflow-y: auto;
       overflow-x: hidden;
+    }
+
+    body.empty {
+      background: #ffffff;
     }
 
     .page {
@@ -225,9 +223,7 @@
       grid-template-rows: 1fr;
     }
 
-    .panel-body-inner {
-      overflow: hidden;
-    }
+    .panel-body-inner { overflow: hidden; }
 
     .divider {
       margin: 0 24px;
@@ -235,9 +231,7 @@
       background: var(--line);
     }
 
-    .list {
-      padding: 8px 0;
-    }
+    .list { padding: 8px 0; }
 
     .row {
       display: grid;
@@ -265,381 +259,386 @@
     }
 
     .row .icon-box svg {
-      width: 38px;
-      height: 38px;
+      width: 34px;
+      height: 34px;
+    }
+
+    .value-wrap {
+      min-width: 0;
+      padding-top: 2px;
     }
 
     .label {
-      margin: 0 0 10px;
       font-size: var(--label-size);
-      line-height: 1.2;
+      line-height: 1.15;
+      color: var(--muted);
+      margin: 0 0 10px;
       font-weight: 400;
+      letter-spacing: -0.01em;
     }
 
-    .value {
-      margin: 0;
+    .value,
+    .value a {
       font-size: var(--value-size);
       line-height: 1.22;
+      color: var(--text);
+      margin: 0;
       font-weight: 400;
+      text-decoration: none;
       word-break: break-word;
     }
 
-    .value a {
-      color: inherit;
-      text-decoration: none;
+    .value a:hover {
+      text-decoration: underline;
     }
-
-    .state,
-    .error-box {
-      width: min(calc(100vw - (var(--page-side) * 2)), var(--frame-max));
-      margin: 0 auto;
-      background: var(--card);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow);
-      padding: 24px;
-      font-size: 20px;
-      line-height: 1.5;
-    }
-
-    .state { display: none; }
-    .state.visible,
-    .error-box.visible { display: block; }
-    .hidden { display: none !important; }
 
     @media (max-width: 900px) {
-      :root { --frame-max: 760px; }
-    }
-
-    @media (max-width: 720px) {
       :root {
-        --page-side: 18px;
-        --hero-edge-gap: 34px;
-        --content-gap-top: 34px;
-        --avatar-size: 284px;
-        --avatar-border: 9px;
-        --name-size: 60px;
-        --button-width: 620px;
-        --button-height: 108px;
-        --button-font: 29px;
-        --button-icon: 48px;
-        --panel-header-h: 128px;
-        --panel-title: 42px;
-        --panel-icon: 92px;
-        --label-size: 22px;
-        --value-size: 28px;
-      }
-    }
-
-    @media (max-width: 540px) {
-      :root {
-        --page-side: 18px;
-        --hero-edge-gap: 32px;
-        --content-gap-top: 32px;
-        --avatar-size: 186px;
-        --avatar-border: 7px;
-        --hero-name-gap-top: 22px;
-        --hero-button-gap-top: 24px;
-        --name-size: 42px;
+        --avatar-size: 260px;
+        --avatar-border: 8px;
+        --name-size: 46px;
         --button-width: 100%;
-        --button-height: 78px;
-        --button-font: 25px;
-        --button-icon: 38px;
-        --panel-header-h: 92px;
+        --button-height: 86px;
+        --button-font: 23px;
+        --button-icon: 36px;
+        --panel-header-h: 96px;
         --panel-title: 34px;
         --panel-icon: 68px;
         --label-size: 18px;
-        --value-size: 19px;
-        --row-gap: 14px;
-      }
-
-      .panel-toggle { padding: 12px 18px; }
-      .panel-header-left { gap: 16px; }
-
-      .icon-box svg,
-      .chevron {
-        width: 30px;
-        height: 30px;
+        --value-size: 22px;
       }
 
       .row {
-        grid-template-columns: 82px minmax(0, 1fr);
-        padding: 20px 18px;
+        grid-template-columns: 90px minmax(0, 1fr);
+        padding: 22px 22px;
       }
 
       .row + .row::before {
-        left: 18px;
-        right: 18px;
+        left: 22px;
+        right: 22px;
       }
 
       .row .icon-box {
-        width: 58px;
-        height: 58px;
+        width: 64px;
+        height: 64px;
       }
 
       .row .icon-box svg {
         width: 28px;
         height: 28px;
       }
-
-      .divider { margin: 0 18px; }
     }
   </style>
 </head>
-<body>
-  <main class="page">
-    <section class="hero hidden" id="profileSection">
-      <div class="hero-inner">
-        <div class="avatar-wrap">
-          <img class="avatar" id="avatar" src="" alt="" />
-        </div>
-        <h1 class="name" id="personName"></h1>
-        <a class="add-btn" id="contactLink" href="#" download>
-          <svg class="plus-icon" viewBox="0 0 32 32" aria-hidden="true">
-            <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="2.5"></circle>
-            <path d="M16 9v14M9 16h14" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"></path>
-          </svg>
-          <span>Add contact</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="content hidden" id="contentSection">
-      <div class="content-inner">
-        <div class="accordion">
-          <details class="panel" name="info-panels" open>
-            <summary class="panel-toggle">
-              <div class="panel-header-left">
-                <div class="icon-box" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M5 4.8c0-.44.36-.8.8-.8h2.08c.38 0 .71.27.78.64l.56 3.04c.05.26-.04.53-.24.71L7.5 9.9a13.13 13.13 0 0 0 6.6 6.6l1.53-1.48c.18-.2.45-.29.71-.24l3.04.56c.37.07.64.4.64.78v2.08c0 .44-.36.8-.8.8h-1.2C10.84 20 4 13.16 4 5.99V4.8h1Z"></path>
-                  </svg>
-                </div>
-                <h2 class="section-title">Contact</h2>
-              </div>
-              <div class="chevron-wrap" aria-hidden="true">
-                <svg class="chevron" viewBox="0 0 24 24">
-                  <path d="M9 6l6 6-6 6"></path>
-                </svg>
-              </div>
-            </summary>
-
-            <div class="panel-body">
-              <div class="panel-body-inner">
-                <div class="divider"></div>
-                <div class="list" id="contactList"></div>
-              </div>
-            </div>
-          </details>
-
-          <details class="panel" name="info-panels" open>
-            <summary class="panel-toggle">
-              <div class="panel-header-left">
-                <div class="icon-box" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <rect x="4" y="7" width="16" height="11" rx="2"></rect>
-                    <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"></path>
-                    <path d="M4 11.5h16"></path>
-                  </svg>
-                </div>
-                <h2 class="section-title">Company</h2>
-              </div>
-              <div class="chevron-wrap" aria-hidden="true">
-                <svg class="chevron" viewBox="0 0 24 24">
-                  <path d="M9 6l6 6-6 6"></path>
-                </svg>
-              </div>
-            </summary>
-
-            <div class="panel-body">
-              <div class="panel-body-inner">
-                <div class="divider"></div>
-                <div class="list" id="companyList"></div>
-              </div>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" id="statusSection">
-      <div class="state visible" id="loadingState">Loading profile…</div>
-      <div class="error-box hidden" id="errorBox"></div>
-    </section>
-  </main>
+<body class="empty">
+  <div id="app"></div>
 
   <script>
-    const DEFAULT_PERSON = "Armen_Grishkyan";
-    const ALLOWED_NAME = /^[A-Za-z0-9_-]+$/;
-
-    const FIELD_META = {
-      phone: {
-        label: "Phone:",
-        icon: `<svg viewBox="0 0 24 24"><path d="M5 4.8c0-.44.36-.8.8-.8h2.08c.38 0 .71.27.78.64l.56 3.04c.05.26-.04.53-.24.71L7.5 9.9a13.13 13.13 0 0 0 6.6 6.6l1.53-1.48c.18-.2.45-.29.71-.24l3.04.56c.37.07.64.4.64.78v2.08c0 .44-.36.8-.8.8h-1.2C10.84 20 4 13.16 4 5.99V4.8h1Z"></path></svg>`,
-        href: value => `tel:${value.replace(/\s+/g, "")}`,
-        text: value => value
-      },
-      email: {
-        label: "Email:",
-        icon: `<svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect><path d="M4.5 7l7.5 6 7.5-6"></path></svg>`,
-        href: value => `mailto:${value}`,
-        text: value => value
-      },
-      website: {
-        label: "Website:",
-        icon: `<svg viewBox="0 0 24 24"><path d="M10.5 13.5l3-3"></path><path d="M8.2 15.8l-1.35 1.35a3.4 3.4 0 1 1-4.8-4.8L5.7 8.7a3.4 3.4 0 0 1 4.8 4.8l-.85.85"></path><path d="M15.8 8.2l1.35-1.35a3.4 3.4 0 1 1 4.8 4.8L18.3 15.3a3.4 3.4 0 0 1-4.8-4.8l.85-.85"></path></svg>`,
-        href: value => normalizeUrl(value),
-        text: value => value.replace(/^https?:\/\//i, "")
-      },
-      company: {
-        label: "Company:",
-        icon: `<svg viewBox="0 0 24 24"><path d="M4 20h16"></path><path d="M7 20V8h10v12"></path><path d="M10 8V5h4v3"></path><path d="M9.5 11h.01"></path><path d="M14.5 11h.01"></path><path d="M9.5 14h.01"></path><path d="M14.5 14h.01"></path></svg>`
-      },
-      title: {
-        label: "Title:",
-        icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 19.2a6.5 6.5 0 0 1 13 0"></path></svg>`
-      }
+    const ICONS = {
+      contact: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12c2.76 0 5-2.46 5-5.5S14.76 1 12 1 7 3.46 7 6.5 9.24 12 12 12Z"></path>
+          <path d="M3 22c0-4.42 4.03-8 9-8s9 3.58 9 8"></path>
+        </svg>`,
+      company: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 22V8l9-4 9 4v14"></path>
+          <path d="M9 22v-5h6v5"></path>
+          <path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"></path>
+        </svg>`,
+      chevron: `
+        <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 6l6 6-6 6"></path>
+        </svg>`,
+      plus: `
+        <svg class="plus-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>`,
+      phone: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.84 19.84 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.15 12.8 19.84 19.84 0 0 1 2.08 4.09 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.89.33 1.76.62 2.61a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.47-1.23a2 2 0 0 1 2.11-.45c.85.29 1.72.5 2.61.62A2 2 0 0 1 22 16.92z"></path>
+        </svg>`,
+      email: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 4h16v16H4z"></path>
+          <path d="M22 6l-10 7L2 6"></path>
+        </svg>`,
+      website: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
+        </svg>`,
+      telegram: `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.5 4.5L18 20.5c-.26 1.15-.94 1.43-1.9.89l-5.25-3.87-2.53 2.44c-.28.28-.52.52-1.06.52l.38-5.39 9.8-8.86c.43-.38-.09-.59-.66-.21L4.67 13.9.29 12.53c-.95-.3-.97-.95.2-1.41L19.14 3.8c.86-.32 1.61.2 1.36 1.7z"></path>
+        </svg>`
     };
 
+    const params = new URLSearchParams(window.location.search);
+    const rawName = params.get('name') || '';
+    const safeName = /^[A-Za-z0-9_-]+$/.test(rawName) ? rawName : '';
+
+    function unfoldVcf(text) {
+      return text.replace(/\r\n[ \t]/g, '').replace(/\n[ \t]/g, '');
+    }
+
+    function parseLine(line) {
+      const idx = line.indexOf(':');
+      if (idx === -1) return null;
+
+      const left = line.slice(0, idx);
+      const value = line.slice(idx + 1);
+
+      const parts = left.split(';');
+      const name = parts[0].toUpperCase();
+      const params = {};
+
+      for (let i = 1; i < parts.length; i++) {
+        const part = parts[i];
+        const eqIndex = part.indexOf('=');
+        if (eqIndex === -1) {
+          params.TYPE = params.TYPE ? [].concat(params.TYPE, part) : part;
+        } else {
+          const key = part.slice(0, eqIndex).toUpperCase();
+          const val = part.slice(eqIndex + 1);
+          params[key] = params[key] ? [].concat(params[key], val) : val;
+        }
+      }
+
+      return { name, params, value };
+    }
+
+    function decodeEscapes(str) {
+      return str
+        .replace(/\\n/gi, '\n')
+        .replace(/\\,/g, ',')
+        .replace(/\\;/g, ';')
+        .replace(/\\\\/g, '\\');
+    }
+
     function normalizeUrl(url) {
-      if (!url) return "#";
-      return /^https?:\/\//i.test(url) ? url : `https://${url}`;
+      if (!url) return '';
+      const cleaned = url.trim();
+      if (!cleaned) return '';
+      if (/^https?:\/\//i.test(cleaned)) return cleaned;
+      return 'https://' + cleaned;
     }
 
-    function escapeHtml(value) {
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/\"/g, "&quot;")
-        .replace(/'/g, "&#39;");
+    function normalizeTelegram(input) {
+      if (!input) return { label: '', href: '' };
+      let value = input.trim();
+      if (!value) return { label: '', href: '' };
+
+      value = value.replace(/^https?:\/\/t\.me\//i, '@');
+      value = value.replace(/^telegram:\/\//i, '');
+      const username = value.startsWith('@') ? value.slice(1) : value;
+      return {
+        label: '@' + username,
+        href: 'https://t.me/' + username
+      };
     }
 
-    function getRequestedPerson() {
-      const raw = new URLSearchParams(window.location.search).get("name") || DEFAULT_PERSON;
-      const trimmed = raw.trim();
-      if (!ALLOWED_NAME.test(trimmed)) {
-        throw new Error("Invalid profile name. Use only letters, numbers, underscore and hyphen.");
+    function parseVcf(vcfText) {
+      const text = unfoldVcf(vcfText);
+      const lines = text.split(/\r\n|\n|\r/).filter(Boolean);
+
+      const card = {
+        fullName: '',
+        phone: '',
+        email: '',
+        website: '',
+        company: '',
+        title: '',
+        telegram: '',
+        photoDataUrl: ''
+      };
+
+      const labelMap = {};
+
+      for (const line of lines) {
+        const parsed = parseLine(line);
+        if (!parsed) continue;
+
+        const { name, params, value } = parsed;
+        const cleanValue = decodeEscapes(value).trim();
+
+        if (/^ITEM\d+\.X-ABLABEL$/i.test(name)) {
+          labelMap[name.split('.')[0].toUpperCase()] = cleanValue;
+          continue;
+        }
+
+        if (name === 'FN' && cleanValue) {
+          card.fullName = cleanValue;
+          continue;
+        }
+
+        if (/^ITEM\d+\.EMAIL$/i.test(name) || name === 'EMAIL') {
+          if (!card.email && cleanValue) card.email = cleanValue;
+          continue;
+        }
+
+        if (/^ITEM\d+\.TEL$/i.test(name) || name === 'TEL') {
+          if (!card.phone && cleanValue) card.phone = cleanValue;
+          continue;
+        }
+
+        if (/^ITEM\d+\.URL$/i.test(name) || name === 'URL') {
+          if (!card.website && cleanValue) card.website = cleanValue;
+          continue;
+        }
+
+        if (name === 'ORG' && cleanValue) {
+          card.company = cleanValue.replace(/;+/g, ' ').trim();
+          continue;
+        }
+
+        if (name === 'TITLE' && cleanValue) {
+          card.title = cleanValue;
+          continue;
+        }
+
+        if (name === 'X-SOCIALPROFILE') {
+          const typeValue = Array.isArray(params.TYPE) ? params.TYPE.join(',') : (params.TYPE || '');
+          const upper = String(typeValue).toUpperCase();
+          const isTelegram = upper.includes('TELEGRAM') || /(^|;)X-USER=/i.test(';' + Object.keys(params).map(k => `${k}=${params[k]}`).join(';')) || /telegram/i.test(cleanValue);
+
+          if (isTelegram && !card.telegram) {
+            const xUser = params['X-USER'];
+            if (xUser) {
+              card.telegram = Array.isArray(xUser) ? xUser[0] : xUser;
+            } else if (cleanValue) {
+              card.telegram = cleanValue;
+            }
+          }
+          continue;
+        }
+
+        if (name === 'PHOTO') {
+          const type = Array.isArray(params.TYPE) ? params.TYPE[0] : (params.TYPE || 'JPEG');
+          const encoding = Array.isArray(params.ENCODING) ? params.ENCODING[0] : params.ENCODING;
+          if (/^b$/i.test(encoding || '') || /^base64$/i.test(encoding || '')) {
+            const base64 = cleanValue.replace(/\s+/g, '');
+            if (base64) {
+              card.photoDataUrl = `data:image/${String(type).toLowerCase()};base64,${base64}`;
+            }
+          } else if (/^https?:\/\//i.test(cleanValue)) {
+            card.photoDataUrl = cleanValue;
+          }
+        }
       }
-      return trimmed;
+
+      return card;
     }
 
-    function textFrom(parent, tagName) {
-      return parent?.querySelector(tagName)?.textContent?.trim() || "";
-    }
-
-    function createRow(type, value) {
-      const meta = FIELD_META[type];
-      if (!meta || !value) return "";
-
-      const safeValue = escapeHtml(value);
-      let content = safeValue;
-
-      if (meta.href) {
-        const href = escapeHtml(meta.href(value));
-        const text = escapeHtml(meta.text ? meta.text(value) : value);
-        const target = type === "website" ? ' target="_blank" rel="noopener"' : "";
-        content = `<a href="${href}"${target}>${text}</a>`;
-      }
-
+    function makeRow(icon, label, valueHtml) {
       return `
         <div class="row">
-          <div class="icon-box" aria-hidden="true">${meta.icon}</div>
-          <div>
-            <p class="label">${meta.label}</p>
-            <p class="value">${content}</p>
+          <div class="icon-box">${icon}</div>
+          <div class="value-wrap">
+            <p class="label">${label}</p>
+            <p class="value">${valueHtml}</p>
           </div>
         </div>
       `;
     }
 
-    function parseXmlProfile(xmlText) {
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(xmlText, "application/xml");
-      const parserError = xml.querySelector("parsererror");
-      if (parserError) {
-        throw new Error("Profile XML is invalid.");
-      }
-
-      const profile = xml.querySelector("profile");
-      if (!profile) {
-        throw new Error("XML must contain a <profile> root element.");
-      }
-
-      const displayName = textFrom(profile, "displayName") || textFrom(profile, "name");
-      if (!displayName) {
-        throw new Error("XML must contain <displayName> or <name>.");
-      }
-
-      const contact = profile.querySelector("contact");
-      const company = profile.querySelector("company");
-
-      return {
-        displayName,
-        contact: {
-          phone: textFrom(contact, "phone"),
-          email: textFrom(contact, "email"),
-          website: textFrom(contact, "website")
-        },
-        company: {
-          company: textFrom(company, "name"),
-          title: textFrom(company, "title")
-        }
-      };
+    function makePanel(title, sectionIcon, rowsHtml, open = true) {
+      return `
+        <details class="panel" ${open ? 'open' : ''}>
+          <summary class="panel-toggle">
+            <div class="panel-header-left">
+              <div class="icon-box">${sectionIcon}</div>
+              <h2 class="section-title">${title}</h2>
+            </div>
+            <div class="chevron-wrap">${ICONS.chevron}</div>
+          </summary>
+          <div class="divider"></div>
+          <div class="panel-body">
+            <div class="panel-body-inner">
+              <div class="list">${rowsHtml}</div>
+            </div>
+          </div>
+        </details>
+      `;
     }
 
     async function loadProfile() {
-      const loadingState = document.getElementById("loadingState");
-      const errorBox = document.getElementById("errorBox");
-      const profileSection = document.getElementById("profileSection");
-      const contentSection = document.getElementById("contentSection");
+      if (!safeName) return;
 
       try {
-        const personKey = getRequestedPerson();
-        const xmlPath = `./${personKey}.xml`;
-        const imagePath = `./${personKey}.jpg`;
-        const vcfPath = `./${personKey}.vcf`;
+        const response = await fetch(`./${safeName}.vcf`, { cache: 'no-store' });
+        if (!response.ok) return;
 
-        const response = await fetch(xmlPath, { cache: "no-store" });
-        if (!response.ok) {
-          throw new Error(`Profile file not found: ${xmlPath}`);
+        const vcfText = await response.text();
+        if (!/BEGIN:VCARD/i.test(vcfText)) return;
+
+        const card = parseVcf(vcfText);
+
+        if (!card.fullName) return;
+
+        const contactRows = [];
+        if (card.phone) {
+          const tel = card.phone.replace(/[^\d+]/g, '');
+          contactRows.push(makeRow(ICONS.phone, 'Phone', `<a href="tel:${tel}">${card.phone}</a>`));
+        }
+        if (card.email) {
+          contactRows.push(makeRow(ICONS.email, 'Email', `<a href="mailto:${card.email}">${card.email}</a>`));
+        }
+        if (card.website) {
+          const siteHref = normalizeUrl(card.website);
+          contactRows.push(makeRow(ICONS.website, 'Website', `<a href="${siteHref}" target="_blank" rel="noopener noreferrer">${card.website}</a>`));
+        }
+        if (card.telegram) {
+          const tg = normalizeTelegram(card.telegram);
+          if (tg.label && tg.href) {
+            contactRows.push(makeRow(ICONS.telegram, 'Telegram', `<a href="${tg.href}" target="_blank" rel="noopener noreferrer">${tg.label}</a>`));
+          }
         }
 
-        const xmlText = await response.text();
-        const profile = parseXmlProfile(xmlText);
+        const companyRows = [];
+        if (card.company) {
+          companyRows.push(makeRow(ICONS.company, 'Company', card.company));
+        }
+        if (card.title) {
+          companyRows.push(makeRow(ICONS.company, 'Title', card.title));
+        }
 
-        document.title = profile.displayName;
-        document.getElementById("personName").textContent = profile.displayName;
+        if (contactRows.length === 0 && companyRows.length === 0) {
+          return;
+        }
 
-        const avatar = document.getElementById("avatar");
-        avatar.src = imagePath;
-        avatar.alt = profile.displayName;
+        const photoSrc = card.photoDataUrl || `./${safeName}.jpg`;
 
-        const contactLink = document.getElementById("contactLink");
-        contactLink.href = vcfPath;
-        contactLink.download = `${personKey}.vcf`;
+        document.title = card.fullName;
+        document.body.classList.remove('empty');
 
-        document.getElementById("contactList").innerHTML = [
-          createRow("phone", profile.contact.phone),
-          createRow("email", profile.contact.email),
-          createRow("website", profile.contact.website)
-        ].join("");
+        document.getElementById('app').innerHTML = `
+          <div class="page">
+            <section class="hero">
+              <div class="hero-inner">
+                <div class="avatar-wrap">
+                  <img class="avatar" src="${photoSrc}" alt="${card.fullName}" onerror="this.onerror=null; this.src=''; this.parentElement.style.display='none';">
+                </div>
+                <h1 class="name">${card.fullName}</h1>
+                <a class="add-btn" href="./${safeName}.vcf" download>
+                  ${ICONS.plus}
+                  <span>Add Contact</span>
+                </a>
+              </div>
+            </section>
 
-        document.getElementById("companyList").innerHTML = [
-          createRow("company", profile.company.company),
-          createRow("title", profile.company.title)
-        ].join("");
-
-        loadingState.classList.remove("visible");
-        loadingState.classList.add("hidden");
-        errorBox.classList.add("hidden");
-        profileSection.classList.remove("hidden");
-        contentSection.classList.remove("hidden");
-      } catch (error) {
-        loadingState.classList.remove("visible");
-        loadingState.classList.add("hidden");
-        errorBox.textContent = error.message;
-        errorBox.classList.remove("hidden");
-        errorBox.classList.add("visible");
+            <section class="content">
+              <div class="content-inner">
+                <div class="accordion">
+                  ${contactRows.length ? makePanel('Contact', ICONS.contact, contactRows.join(''), true) : ''}
+                  ${companyRows.length ? makePanel('Company', ICONS.company, companyRows.join(''), true) : ''}
+                </div>
+              </div>
+            </section>
+          </div>
+        `;
+      } catch (e) {
+        // Intentionally keep the page empty.
       }
     }
 
